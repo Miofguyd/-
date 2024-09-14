@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',20);
-            $table->string('email',50);
-            $table->timestamp('email_verified_at');
-            $table->string('password');
-            $table->string('nickname');
+        Schema::create('anime_tag', function (Blueprint $table) {
+            $table->foreignId('anime_id')->constrained();
+            $table->foreignId('tag_id')->constrained();
+            $table->primary(['anime_id','tag_id']);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('anime_tag');
     }
 };
