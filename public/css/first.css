@@ -1,0 +1,23 @@
+ .hot_tag {
+    position: absolute;
+    top: 108px;
+    left: 700px;
+ }
+ 
+.season_anime {
+    position: relative;
+    top: 40px;
+    left: 10px;
+ }
+ 
+ .best_anime {
+    position: relative;
+    top: 140px;
+    left: 10px;
+ }
+ 
+ a{
+     position: relative;
+     top: 60px;
+     left: 50px;
+ }
