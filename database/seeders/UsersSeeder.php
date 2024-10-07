@@ -16,10 +16,8 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
          DB::table('users')->insert([
-             'id' => 1,
              'name' => '山田太郎',
              'email' => 'anime@icloud.com',
-             'email_verified_at' => null,
              'password' => Hash::make('anime555'),
              'nickname' => 'Taro',
              'created_at' => new Datetime(),

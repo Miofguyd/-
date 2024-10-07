@@ -13,8 +13,8 @@ class AnimeCastSeeder extends Seeder
      */
     public function run(): void
     {
-       DB::table('anime_cast')->insert([
-           'anime_id' => 1,
-           'cast_id' => 1,]);
+    //   DB::table('anime_cast')->insert([
+    //       'anime_id' => 1,
+    //       'cast_id' => 1,]);
     }
 }

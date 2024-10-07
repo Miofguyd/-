@@ -13,8 +13,8 @@ class AnimeSubscriptionseeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('anime_subscription')->insert([
-            'anime_id' => 1,
-            'subscription_id' => 1,]);
+        // DB::table('anime_subscription')->insert([
+            // 'anime_id' => 1,
+            // 'subscription_id' => 1,]);
     }
 }
