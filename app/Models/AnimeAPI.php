@@ -4,13 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Review;
-use App\Models\Cast;
-use App\Models\Tag;
-use App\Models\Subscription;
 
-
-class Anime extends Model
+class AnimeAPI extends Model
 {
     use HasFactory;
     
@@ -41,25 +36,4 @@ class Anime extends Model
         'image_url',
         'casts',
         ];
-        
-        public function reviews()
-        {
-            return $this->hasMany(Review::class);
-        }
-        
-        public function casts()
-        {
-            return $this->belongsToMany(Cast::class);
-        }
-        
-        public function tags()
-        {
-            return $this->belongsToMany(Tag::class);
-        }
-        
-        public function subscriptions()
-        {
-            return $this->belongsToMany(Subscription::class);
-        }
 }
-

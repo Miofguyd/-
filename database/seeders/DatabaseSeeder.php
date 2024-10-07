@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
            AnimeCastSeeder::class,
            AnimeTagSeeder::class,
            AnimeSubscriptionSeeder::class,
+           AnimeapisSeeder::class,
            ]);
     }
 }

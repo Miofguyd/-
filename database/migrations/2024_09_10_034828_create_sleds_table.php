@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('sleds', function (Blueprint $table) {
             $table->id();
-            $table->string('title',50);
-            $table->string('message',250);
+            $table->string('title',50)->nullable();
+            $table->text('content');
+            $table->unsignedInteger('comment_count')->default(0);
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

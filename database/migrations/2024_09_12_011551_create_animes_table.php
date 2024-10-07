@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('animes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('picture')->nullable();
-            $table->string('director');
-            $table->string('original_work');
+            $table->string('annict_id')->nullable();
+            $table->string('title')->nullable();
+            $table->text('image_url')->nullable();
+            $table->string('media')->nullable();
+            $table->text('casts')->nullable();
             $table->integer('star_total')->nullable();
             $table->integer('review_total')->nullable();
-            $table->foreignId('review_id')->constrained('reviews');
+            $table->foreignId('review_id')->constrained('reviews')->nullable();
             $table->timestamps();
         });
     }
