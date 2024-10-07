@@ -4,13 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Anime;
 
-class Tag extends Model
+class Comment extends Model
 {
     use HasFactory;
-    public function animes()
-    {
-        return $this->belongsToMany(Anime::class);
-    }
 }

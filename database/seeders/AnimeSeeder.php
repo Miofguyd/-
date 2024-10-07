@@ -14,16 +14,11 @@ class AnimeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('animes')->insert([
-            'name' => 'ドラゴンボール',
-            'picture' => null,
-            'director' => '西尾大介' ,
-            'original_work' => '漫画「ドラゴンボール」',
-            'star_total' => '500',
-            'review_total' => '100',
-            'review_id' => 1,
-            'created_at' => new Datetime(),
-            'updated_at' => new Datetime(),
-            ]);
+      DB::table('animes')->insert([
+             'id' => 1,
+             'title' => 'アニメ1',
+             'casts' => '声優1',
+             'review_id' =>1,
+          ]);
     }
 }

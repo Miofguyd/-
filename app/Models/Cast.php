@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Anime;
 
 class Cast extends Model
 {
     use HasFactory;
-}
-
-function animes()
+    public function animes()
 {
     return $this->belongsToMany(Anime::class);
+}
+
 }

@@ -210,5 +210,14 @@ return [
     */
 
     'partitioned' => false,
+    
+     'annict' => [
+        'client_id' => env('ANNICT_CLIENT_ID'),
+        'client_secret' => env('ANNICT_CLIENT_SECRET'),
+        'redirect' => env('ANNICT_REDIRECT_URI'),
+        'authorize_url' => env('ANNICT_AUTHORIZE_URL'),
+        'token_url' => env('ANNICT_TOKEN_URL'),
+    ],
+
 
 ];

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at');
             $table->string('password');
             $table->string('nickname');
+            $table->string('status')->default('active');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,5 +30,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        $table->dropColumn('status');
     }
 };
