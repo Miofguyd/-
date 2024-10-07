@@ -18,9 +18,9 @@ return new class extends Migration
             $table->text('image_url')->nullable();
             $table->string('media')->nullable();
             $table->text('casts')->nullable();
-            // $table->integer('star_total')->nullable();
-            // $table->integer('review_total')->nullable();
-            // $table->foreignId('review_id')->constrained('reviews')->nullable();
+            $table->integer('star_total')->nullable();
+            $table->integer('review_total')->nullable();
+            $table->foreignId('review_id')->constrained('reviews')->nullable();
             $table->timestamps();
         });
     }
