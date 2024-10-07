@@ -13,8 +13,8 @@ class AnimeTagSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('anime_tag')->insert([
-            'anime_id' => 1,
-            'tag_id' => 1,]);
-    }
+        // DB::table('anime_tag')->insert([
+    //         'anime_id' => 1,
+    //         'tag_id' => 1,]);
+ }
 }

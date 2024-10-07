@@ -15,7 +15,6 @@ class AnimeSeeder extends Seeder
     public function run(): void
     {
       DB::table('animes')->insert([
-             'id' => 1,
              'title' => 'アニメ1',
              'casts' => '声優1',
              'review_id' =>1,
