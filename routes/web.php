@@ -14,17 +14,23 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', [FirstController::class, 'first'])->name('first');
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/first', [FirstController::class, 'first'])->name('first');
 Route::get('/anime/{workId}', [FirstController::class, 'getAnimeDetails'])->name('getAnimeDetails');
 Route::get('/animes/{anime}',[FirstController::class,'anime'])->name('anime');
 Route::get('/sleds',[FirstController::class,'sled'])->name('sled');
+Route::get('/sleds/show',[FirstController::class,'singleshow'])->name('sled.show');
 Route::get('/bbc/{id}', [FirstController::class, 'show'])->name('show');
-Route::middleware('auth')->group(function () {Route::get('/sleds/create',[FirstController::class,'create'])->name('create');});
-Route::resource('bbc',FirstController::class);
-Route::resource('comment', FirstController::class);
-Route::resource('sleds', FirstController::class);
-Route::post('sleds/{sled}/comment', [FirstController::class, 'storeComment'])->name('comment.store');
+Route::middleware('auth')->group(function () {
+    Route::get('/sleds/create',[FirstController::class,'create'])->name('create');
+    Route::get('/sleds/{sled}/comment/create', [FirstController::class, 'createComment'])->name('comment.create');
+    Route::post('sleds/{sled}/comment', [FirstController::class, 'storeComment'])->name('comment.store');
+});
+// Route::resource('bbc',FirstController::class);
+// Route::resource('comment', FirstController::class);
+// Route::resource('sleds', FirstController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -26,12 +26,12 @@
 	<p class="bg-danger">{{ $message }}</p>
 @endforeach
 
-{{ Form::open(['route' => 'comment.store'], array('class' => 'form')) }}
+{{ Form::open(['route' => ['comment.store', $sled->id], 'class' => 'form']) }}
 
 	<div class="form-group">
 		<label for="commenter" class="">名前</label>
 		<div class="">
-			{{ Form::text('commenter', null, array('class' => '')) }}
+			{{ Form::text('commenter', Auth::user()->name ?? '', ['class' => '', 'readonly']) }}
 		</div>
 	</div>
 
