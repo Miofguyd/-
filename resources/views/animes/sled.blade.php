@@ -17,7 +17,7 @@
 		<small>投稿日：{{ date("Y年 m月 d日",strtotime($item->created_at)) }}</small>
 	</h2>
 	<p>{{ $item->content }}</p>
-	<p><a href="{{ url('/bbc/' . $item->id) }}" class="btn btn-primary">続きを読む</a></p>
+	<p><a href="{{ route('sleds.show', $item->id) }}" class="btn btn-primary">続きを読む</a></p>
 	<p>コメント数：{{ $item->comment_count }}</p>
 	<hr />
     @endforeach

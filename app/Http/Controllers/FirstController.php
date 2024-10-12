@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Anime;
 use App\Models\Review;
 use App\Models\Sled;
+use App\Models\Comment;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Validator; 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Auth;
 
 class FirstController extends Controller
 {
@@ -61,7 +63,7 @@ class FirstController extends Controller
     public function show($id)
     {
 	    $sled = Sled::find($id);
-	    return view('bbc.single')->with('sled', $sled);
+	    return view('bbc.show')->with('sled', $sled);
     }
     function create()
     {
@@ -96,8 +98,16 @@ class FirstController extends Controller
 			->withInput();
 	}
 }
+    
+    public function createComment($sledId){
+        $sled = Sled::findOrFail($sledId);
+        return view('bbc.single', compact('sled'));
+    }
+    // public function singleshow(){
+    //     return view('bbc.single',compact(''));
+    // }
 
-    public function storeComment(Request $request)
+    public function storeComment(Request $request, Sled $sled)
     {
     	$rules = [
     	    'commenter' => 'required',
@@ -113,12 +123,13 @@ class FirstController extends Controller
     	
     	if ($validator->passes()) {
     		$comment = new Comment;
-    		$comment->commenter = $request->input('commenter');
+    		$comment->commenter = Auth::user()->name;  
     		$comment->comment = $request->input('comment');
-    		$comment->post_id = $request->input('sled_id');
+    		$comment->sled_id = $sled->id;
+    		$comment->user_id = Auth::id(); 
     		$comment->save();
-    		return redirect()->back()
-    			->with('message', 'コメントが完了しました。');
+    		return redirect()->route('comment.create', ['sled' => $sled->id])
+        ->with('message', 'コメントを投稿しました');
     	}else{
     		return redirect()->back()
     			->withErrors($validator)
